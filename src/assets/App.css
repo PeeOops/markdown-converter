@@ -1,0 +1,20 @@
+*,
+*::after,
+*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+:root{
+    --light-pink : #fcf5ed;
+    --black: #000000;
+    --white: #ffffff;
+    --peachy-beight: #f4bf96;
+}
+
+@font-face {
+    font-family: "BrownSugar";
+    src: url("./fonts/brownsugar.otf") format("opentype");
+    font-weight: normal;
+}

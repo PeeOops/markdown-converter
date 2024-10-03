@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import Menu from './components/Menu.js';
+import MarkdownToText from './components/MarkdownToText.js';
+import TextToMarkdown from './components/TextToMarkdown.js';
+import './components/MarkdownToText.js';
+import './components/TextToMarkdown.js';
+import React, {useState, useEffect} from 'react';
+import currentDate from './Utils.js';
+import './assets/App.css';
 
 function App() {
+
+  const [menuChange, setMenuChange] = useState("menu");
+  const date = currentDate();
+
+  function handleClickMarkToText(){
+    setMenuChange("markdown");
+  }
+
+  function handleClickTextToMark(){
+    setMenuChange("text");
+  }
+
+
+  useEffect(() => {
+    document.body.style.backgroundColor = '#F4BF96';
+  },[])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {(menuChange === 'menu') ? <Menu currDate={date} onClickChangeMarkdown={handleClickMarkToText} onClickChangeText={handleClickTextToMark} /> : (menuChange === 'markdown') ? <MarkdownToText  /> : <TextToMarkdown />}
     </div>
+
   );
 }
 
