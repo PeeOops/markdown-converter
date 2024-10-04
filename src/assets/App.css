@@ -18,6 +18,53 @@
     src: url("./fonts/brownsugar.otf") format("opentype");
     font-weight: normal;
 }
+/* Container and Icons for Markdown and HTML section */
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    font-family: "BrownSugar", sans-serif;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.icon{
+    display: flex;
+}
+
+.icon img{
+    cursor: pointer;
+}
+
+
+/* Phones */
+@media (max-width: 600px) {
+    .container{
+        flex-direction: column;
+    }
+
+    .markdown, .text, .html, .markeddown{
+        width: 300px;
+    }
+}
+
+/* Tablets */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .container{
+        flex-direction: column;
+    }
+
+    .markdown, .text, .html, .markeddown{
+        width: 550px;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+    .markdown, .text, .html, .markeddown{
+        width: 550px;
+    }
+}
 
 /* Back Button */
 .back{

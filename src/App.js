@@ -8,9 +8,13 @@ import {currentDate} from './Utils.js';
 import { copyToClipboard } from './Utils.js';
 import './assets/App.css';
 import { marked } from 'marked';
+import TurndownService from 'turndown';
 
+
+const turndownService = new TurndownService();
 
 function App() {
+  const date = currentDate();
 
   const [menuChange, setMenuChange] = useState("menu");
   const [markdownInput, setMarkdownInput] = useState(`
@@ -36,7 +40,9 @@ function App() {
   \`\`\`
   `);
   const [markdownOutput, setMarkdownOutput] = useState(marked(markdownInput));
-  const date = currentDate();
+  const [htmlInput, setHtmlInput] = useState(`<h1>Welcome</h1>`);
+  const [htmlOutput, setHtmlOutput] = useState(turndownService.turndown(htmlInput));
+
 
   function handleClickMarkToText(){
     setMenuChange("markdown");
@@ -50,15 +56,25 @@ function App() {
     setMenuChange("menu");
   }
 
-  function handleChangeInput(event){
+  function handleChangeInput(event) {
     const text = event.target.value;
-    setMarkdownInput(text);
-    setMarkdownOutput(marked(text));
+    if (menuChange === "markdown") {
+      setMarkdownInput(text);
+      setMarkdownOutput(marked(text));
+    } else if (menuChange === "text") {
+      setHtmlInput(text);
+      setHtmlOutput(turndownService.turndown(text));
+    }
   }
 
   function handleClickClear(){
-    setMarkdownInput("");
-    setMarkdownOutput("");
+    if(menuChange === "markdown"){
+      setMarkdownInput("");
+      setMarkdownOutput("");
+    }else if(menuChange === "text"){
+      setHtmlInput("");
+      setHtmlOutput("");
+    }
   }
 
   function handleCopyInputClick(){
@@ -75,7 +91,7 @@ function App() {
 
   return (
     <div>
-      {(menuChange === 'menu') ? <Menu currDate={date} onClickChangeMarkdown={handleClickMarkToText} onClickChangeText={handleClickTextToMark} /> : (menuChange === 'markdown') ? <MarkdownToText  onClickBack={handleClickBack} input={markdownInput} onChangeInput={handleChangeInput} onClickClear={handleClickClear} onClickCopyInput={handleCopyInputClick} onClickCopyOutput={handleCopyOutputClick} output={markdownOutput} /> : <HtmlToMarkdown onClickBack={handleClickBack} />}
+      {(menuChange === 'menu') ? <Menu currDate={date} onClickChangeMarkdown={handleClickMarkToText} onClickChangeText={handleClickTextToMark} /> : (menuChange === 'markdown') ? <MarkdownToText  onClickBack={handleClickBack} input={markdownInput} onChangeInput={handleChangeInput} onClickClear={handleClickClear} onClickCopyInput={handleCopyInputClick} onClickCopyOutput={handleCopyOutputClick} output={markdownOutput} /> : <HtmlToMarkdown onClickBack={handleClickBack} onChangeInput={handleChangeInput} onClickClear={handleClickClear} input={htmlInput} output={htmlOutput} />}
     </div>
 
   );

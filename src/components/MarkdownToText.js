@@ -6,16 +6,15 @@ import { HtmlRenderer } from '../Utils';
 function MarkdownToText({onClickBack, onChangeInput, onClickClear, onClickCopyInput, onClickCopyOutput, input, output}){
     return(
         <div>
-            <button className="back" onClick={onClickBack} >Back</button>
+            <button className="back" onClick={onClickBack}>Back</button>
             <div className="container">
                 <div className="markdown">
                     <div className="markdown-navbar">
                         <p>Markdown</p>
                         <div className="icon">
-                            <img src={IconTrash} alt="memo-icon" onClick={onClickClear} />
+                            <img src={IconTrash} alt="trash-icon" onClick={onClickClear} />
                             <img src={IconMemo} alt="memo-icon" onClick={onClickCopyInput} />
                         </div>
-
                     </div>
                     <textarea onChange={onChangeInput} value={input}></textarea>
                 </div>

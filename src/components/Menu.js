@@ -15,7 +15,7 @@ function Menu({currDate, onClickChangeMarkdown, onClickChangeText}){
             <p>A tool that transforms text formatted in Markdown into text formats.</p>
             <div className="menu-buttons">
                 <button onClick={onClickChangeMarkdown} >Markdown to Text</button>
-                <button onClick={onClickChangeText} >Text to Markdown</button>
+                <button onClick={onClickChangeText} >HTML to Markdown</button>
             </div>
         </div>
     );
