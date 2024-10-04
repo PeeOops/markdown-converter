@@ -20,7 +20,7 @@ To run this project locally, follow these steps:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/markdown-converter.git
+   git clone https://github.com/PeeOops/markdown-converter.git
    ```
 2. Navigate to the project directory:
    ```bash
