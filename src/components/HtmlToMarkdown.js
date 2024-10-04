@@ -2,7 +2,7 @@ import '../assets/HtmlToMarkdown.css';
 import IconTrash from '../assets/img/trash-icon.png';
 import IconMemo from '../assets/img/memo-icon.png';
 
-function HtmlToMarkdown({onClickBack, onClickClear, onChangeInput, onClickCopyInput, input, output}){
+function HtmlToMarkdown({onClickBack, onClickClear, onClickCopyOutput, onChangeInput, onClickCopyInput, input, output}){
     return(
         <div>
             <button className="back" onClick={onClickBack} >Back</button>
@@ -20,7 +20,7 @@ function HtmlToMarkdown({onClickBack, onClickClear, onChangeInput, onClickCopyIn
                 <div className="markeddown">
                     <div className="markeddown-navbar">
                         <p>Result</p>
-                        <img src={IconMemo} alt="memo-icon" onClick={onClickCopyInput} />
+                        <img src={IconMemo} alt="memo-icon" onClick={onClickCopyOutput} />
                     </div>
                     <div className="markeddownResult">{output}</div>
                 </div>
