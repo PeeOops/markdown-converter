@@ -11,7 +11,7 @@ import { marked } from 'marked';
 import TurndownService from 'turndown';
 
 
-const turndownService = new TurndownService();
+const turndownService = new TurndownService({headingStyle : 'atx'});
 
 function App() {
   const date = currentDate();
