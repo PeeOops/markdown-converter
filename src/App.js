@@ -1,10 +1,11 @@
 import Menu from './components/Menu.js';
 import MarkdownToText from './components/MarkdownToText.js';
-import TextToMarkdown from './components/TextToMarkdown.js';
+import HtmlToMarkdown from './components/HtmlToMarkdown.js';
 import './components/MarkdownToText.js';
-import './components/TextToMarkdown.js';
+import './components/HtmlToMarkdown.js';
 import React, {useState, useEffect} from 'react';
 import {currentDate} from './Utils.js';
+import { copyToClipboard } from './Utils.js';
 import './assets/App.css';
 import { marked } from 'marked';
 
@@ -60,13 +61,21 @@ function App() {
     setMarkdownOutput("");
   }
 
+  function handleCopyInputClick(){
+    copyToClipboard(markdownInput);
+  }
+
+  function handleCopyOutputClick(){
+    copyToClipboard(markdownOutput);
+  }
+
   useEffect(() => {
     document.body.style.backgroundColor = '#F4BF96';
   },[])
 
   return (
     <div>
-      {(menuChange === 'menu') ? <Menu currDate={date} onClickChangeMarkdown={handleClickMarkToText} onClickChangeText={handleClickTextToMark} /> : (menuChange === 'markdown') ? <MarkdownToText  onClickBack={handleClickBack} input={markdownInput} onChangeInput={handleChangeInput} onClickClear={handleClickClear} output={markdownOutput} /> : <TextToMarkdown />}
+      {(menuChange === 'menu') ? <Menu currDate={date} onClickChangeMarkdown={handleClickMarkToText} onClickChangeText={handleClickTextToMark} /> : (menuChange === 'markdown') ? <MarkdownToText  onClickBack={handleClickBack} input={markdownInput} onChangeInput={handleChangeInput} onClickClear={handleClickClear} onClickCopyInput={handleCopyInputClick} onClickCopyOutput={handleCopyOutputClick} output={markdownOutput} /> : <HtmlToMarkdown onClickBack={handleClickBack} />}
     </div>
 
   );

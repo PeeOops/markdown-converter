@@ -56,7 +56,11 @@
     display: flex;
 }
 
-.icon img:nth-child(1){
+.icon img{
+    cursor: pointer;
+}
+
+.text-navbar img{
     cursor: pointer;
 }
 
@@ -78,8 +82,28 @@
     margin-top: 10px;
 }
 
+.result table,td,tr,th{
+    border: 2px solid var(--black);
+    border-collapse: collapse;
+    padding: 5px 5px;
+}
+
+.result blockquote::before{
+    content: "|";
+    font-size: 30px;
+}
+
 .result pre{
     background-color: var(--peachy-beige);
+    padding: 5px 5px;
+    border-radius: 5px;
+    border: 2px solid var(--black);
+}
+
+.result blockquote{
+    display: flex;
+    justify-content: start;
+    align-items: center;
 }
 
 .result ul, .result ol{
