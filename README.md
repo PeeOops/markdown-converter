@@ -1,7 +1,7 @@
 # Markdown Converter
 
 ## Description
-A simple and user-friendly Markdown converter built with React.js. This application allows users to write Markdown syntax and see the converted HTML output in real-time. It also features a text-to-Markdown conversion option, clipboard copy functionality, and a clear interface.
+A simple and user-friendly Markdown converter built with React.js. This application allows users to write Markdown syntax and see the converted HTML output in real-time. It also features a HTML-to-Markdown conversion option, clipboard copy functionality, and a clear interface.
 
 ## Features
 - **Real-time Markdown Preview**: See your Markdown content rendered as HTML instantly.
@@ -11,7 +11,7 @@ A simple and user-friendly Markdown converter built with React.js. This applicat
 - **Navigation Menu**: Easily switch between Markdown and HTML views.
 
 ## Technologies Used
-- **Frontend**: React.js, marked.js, DOMPurify
+- **Frontend**: React.js, marked.js, DOMPurify, Turndown
 - **Styling**: CSS
 - **Version Control**: Git
 
